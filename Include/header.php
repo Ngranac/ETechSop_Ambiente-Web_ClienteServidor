@@ -28,3 +28,4 @@
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/4b2f294736.js" crossorigin="anonymous"></script>
+</body>

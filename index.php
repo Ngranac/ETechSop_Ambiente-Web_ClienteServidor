@@ -1,42 +1,33 @@
 <?php
 include_once "include/header.php";
-
-
+require_once "DAL/conexion.php";
+require_once "DAL/recoge.php";
 $errores = [];
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    require_once "DAL/recoger.php";
+$mensajeValidacion = "";
 
-    $correo = recogePost("correo");
-    $contrasena = recogePost("contrasena");
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = recogePost("email");
+    $password = recogePost("password");
 
-    //Investigar expresiones regulares en PHP
-    if ($correo == "") {
-        $errores[] = "No se digito el correo";
-    }
-    if ($contrasena == "") {
-        $errores[] = "No se digito la contraseña";
-    }
+    if (empty($email) || empty($password)) {
+        $mensajeValidacion = "Por favor, completa todos los campos.";
+    } else {
+       
+        $query = "SELECT contrasena FROM usuarios WHERE correo = '$email'";
+        $result = mysqli_query(Conecta(), $query);
+        $row = mysqli_fetch_assoc($result);
 
-    if (empty($errores)) {
-        // echo "Ingreso datos a base de datos";
-        require_once "DAL/functions.php";
-        $query = "select id, nombre, correo, contraseña from alumno where correo = '$correo'";
-        $mySession = getObject($query);
-
-        if($mySession != null){
-            $auth = password_verify($contrasena, $mySession['password']);
-            if($auth){
-                session_start();
-                $_SESSION['usuario'] = $mySession['correo'];
-                $_SESSION['id'] = $mySession['id'];
-                $_SERVER['login'] = true;
-                header("Location: consulta-datos.php");
-            }else{
-                $errores[] = "No se pudo iniciar sesión";
+        if ($row) {
+            if (password_verify($password, $row["contrasena"])) {
+                $mensajeValidacion = "Inicio de sesión exitoso. ¡Bienvenido!";
+                header("Location: Compras.php");
+                exit();
+            } else {
+                $mensajeValidacion = "Contraseña incorrecta. Por favor, inténtalo de nuevo.";
             }
-        }else{
-            $errores[] = "Usuario no existe";
+        } else {
+            $mensajeValidacion = "Correo electrónico no encontrado. Por favor, regístrate.";
         }
     }
 }
@@ -65,6 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <br>
     <br>
     <button class="btn btn-primary">Iniciar Sesión</button>
+    <span class="text-dark"><?php echo $mensajeValidacion; ?></span>
     <br>
     <br>
     <a class="text-center" href="registrar.php">Registrarme</a>

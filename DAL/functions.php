@@ -85,3 +85,42 @@ function DefinirContrasena($pCorreo, $pContrasena) {
 
     return $retorno;
 }
+
+function getAvailableProducts() {
+    $conexion = Conecta();
+    $consulta = "SELECT codigo, Nombre, Detalle, imagen, precio FROM productos";
+    $resultado = mysqli_query($conexion, $consulta);
+
+    $productos = array();
+
+    if ($resultado && mysqli_num_rows($resultado) > 0) {
+        while ($producto = mysqli_fetch_assoc($resultado)) {
+            $productos[] = $producto;
+        }
+    }
+
+    Desconecta($conexion);
+
+    return $productos;
+}
+
+function obtenerInformacionUsuario($correo) {
+    $conexion = Conecta();
+    $query = "SELECT correo, contrasena FROM usuarios WHERE correo = '$correo'";
+    $resultado = mysqli_query($conexion, $query);
+    $usuario = mysqli_fetch_assoc($resultado);
+    Desconecta($conexion);
+    return $usuario;
+}
+
+function actualizarContrasena($correo, $nuevaContrasena) {
+    $conexion = Conecta();
+    $hashNuevaContrasena = password_hash($nuevaContrasena, PASSWORD_DEFAULT);
+
+    $query = "UPDATE usuarios SET contrasena = '$hashNuevaContrasena' WHERE correo = '$correo'";
+    $resultado = mysqli_query($conexion, $query);
+
+    Desconecta($conexion);
+
+    return $resultado;
+}

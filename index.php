@@ -3,7 +3,7 @@ include_once "include/header.php";
 require_once "DAL/conexion.php";
 require_once "DAL/recoge.php";
 $errores = [];
-
+session_start();
 $mensajeValidacion = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($row) {
             if (password_verify($password, $row["contrasena"])) {
+                $_SESSION['usuario'] = $email;
                 $mensajeValidacion = "Inicio de sesión exitoso. ¡Bienvenido!";
                 header("Location: Compras.php");
                 exit();

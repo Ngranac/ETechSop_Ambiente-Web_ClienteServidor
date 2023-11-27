@@ -1,4 +1,7 @@
 <?php
+session_start();
+require_once "DAL/conexion.php";
+require_once "DAL/functions.php";
 include_once "include/headerCompras.php";
 ?>
 <!DOCTYPE html>
@@ -38,119 +41,25 @@ include_once "include/headerCompras.php";
         <br>
         <h4>Novedades de hoy</h4>
         <br>   
-        <div class="objetos">
-            <!-- Producto 1 -->
-            <div class="item">
-                <figure>
-                    <img
-                        src="./img/cam.webp"
-                        alt="producto"
-                    />
-                </figure>
-                <div class="info-product">
-                    <h4>Camara instantanea</h4>
-                    <p class="price">₡120000</p>
-                    <button class="btn-add-cart" onclick="showNotification()">Añadir al carrito</button>
-                </div>
-            </div>
-            <!-- Producto 2 -->
-            <div class="item">
-                <figure>
-                    <img
-                        src="./img/airpodsMax.jpg"
-                        alt="producto"
-                    />
-                </figure>
-                <div class="info-product">
-                    <h4>Air Pods Max</h4>
-                    <p class="price">₡500000</p>
-                    <button class="btn-add-cart" onclick="showNotification()">Añadir al carrito</button>
-                </div>
-            </div>
-            <!-- Producto 3 -->
-            <div class="item">
-                <figure>
-                    <img
-                        src="./img/macbookpor.webp"
-                        alt="producto"
-                    />
-                </figure>
-                <div class="info-product">
-                    <h4>MacBook pro</h4>
-                    <p class="price">₡850000</p>
-                    <button class="btn-add-cart" onclick="showNotification()">Añadir al carrito</button>
-                </div>
-            </div>
-            <!-- Producto 4 -->
-            <div class="item">
-                <figure>
-                    <img
-                        src="./img/ipad mini.webp"
-                        alt="producto"
-                    />
-                </figure>
-                <div class="info-product">
-                    <h4>Ipad mini</h4>
-                    <p class="price">₡45000</p>
-                    <button class="btn-add-cart" onclick="showNotification()">Añadir al carrito</button>
-                </div>
-            </div>
-            <!-- Producto 6 -->
-            <div class="item">
-                <figure>
-                    <img
-                        src="./img/audifinos bluetooth.jpg"
-                        alt="producto"
-                    />
-                </figure>
-                <div class="info-product">
-                    <h4>audifinos bluetooth</h4>
-                    <p class="price">₡45000</p>
-                    <button class="btn-add-cart" onclick="showNotification()">Añadir al carrito</button>
-                </div>
-            </div>
-            <!-- Producto 6 -->
-            <div class="item">
-                <figure>
-                    <img
-                        src="./img/Audifonos bluetooth morados.webp"
-                        alt="producto"
-                    />
-                </figure>
-                <div class="info-product">
-                    <h4>Audifonos bluetooth morados</h4>
-                    <p class="price">₡45000</p>
-                    <button class="btn-add-cart" onclick="showNotification()">Añadir al carrito</button>
-                </div>
-            </div>
-            <!-- Producto 7 -->
-            <div class="item">
-                <figure>
-                    <img
-                        src="./img/audifonosalambricos.jpg"
-                        alt="producto"
-                    />
-                </figure>
-                <div class="info-product">
-                    <h4>audifonos alambricos</h4>
-                    <p class="price">₡4500</p>
-                    <button class="btn-add-cart" onclick="showNotification()">Añadir al carrito</button>
-                </div>
-            </div>
-            <!-- Producto 8 -->
-            <div class="item">
-                <figure>
-                    <img
-                        src="./img/Audifonos apple.webp"
-                        alt="producto"
-                    />
-                </figure>
-                <div class="info-product">
-                    <h4>Audifonos Apple</h4>
-                    <p class="price">₡4500</p>
-                    <button class="btn-add-cart" onclick="showNotification()">Añadir al carrito</button>
-                </div>
-            </div>
+    <div class="objetos">
+        <?php
+          $nombreUsuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
+        $productos = getAvailableProducts();
+
+        foreach ($productos as $product) {
+            echo '<div class="item">
+                    <figure>
+                        <img src="' . $product['imagen'] . '" alt="' . $product['Nombre'] . '" />
+                    </figure>
+                    <div class="info-product">
+                        <h4>' . $product['Nombre'] . '</h4>
+                        <p class="price">₡' . $product['precio'] . '</p>
+                        <a href="agregarproducto.php?id=' . $product['codigo'] . '" class="btn-add-cart">Añadir al carrito</a>
+                    </div>
+                </div>';
+        }
+        ?>
+    </div>
 
     </main>
 

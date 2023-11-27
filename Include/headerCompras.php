@@ -26,6 +26,8 @@
     <div class="nav">
         <h3>ETechShop</h3>
     </div>
+    <a  href="carritoCompras.php">Carrito compras</a>
+    <a  href="perfil.php">Perfil</a>
     </header>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"

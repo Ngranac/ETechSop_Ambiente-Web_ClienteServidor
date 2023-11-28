@@ -89,6 +89,7 @@ include_once "include/headerCompras.php";
                    <input type="hidden" id="totalCompra" name="totalCompra" value="<?php echo $total?>">
                     <label for="numeroTarjeta">Número de Tarjeta:</label>
                     <input type="text" id="numeroTarjeta" name="numeroTarjeta" required>
+                    
                 </form>
             </div>
             <div class="modal-footer">

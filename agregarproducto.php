@@ -17,6 +17,7 @@ if (isset($_GET['id'])) {
         } else {
             echo "El producto ya está en el carrito";
         }
+       
 
         Desconecta($conexion);
     } else {

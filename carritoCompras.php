@@ -72,7 +72,7 @@ include_once "include/headerCompras.php";
             ?>
         </div>
         <button class="btn btn-primary" id="finalizarCompraBtn" data-bs-toggle="modal" data-bs-target="#modalFinalizarCompra">Finalizar Compra</button>
-        <a href="Compras.php">Regresar al inicio</a>
+        
 
 
         <div class="modal fade" id="modalFinalizarCompra" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -87,8 +87,15 @@ include_once "include/headerCompras.php";
                 <form id="formularioCompra" action="procesarCompra.php" method="post">
                    <input type="hidden" name="nombreUsuario" value="<?php echo $nombreUsuario; ?>">
                    <input type="hidden" id="totalCompra" name="totalCompra" value="<?php echo $total?>">
-                    <label for="numeroTarjeta">Número de Tarjeta:</label>
+                  
+                   <label for="numeroTarjeta">Número de Tarjeta:</label>
                     <input type="text" id="numeroTarjeta" name="numeroTarjeta" required>
+                    <label for="CVV"> Clave de Seguridad:</label>
+                    <input type="text" id="CVV" name="CVV" required>
+                    <label for="fechaVencimiento"> Fecha de vencimiento: </label>
+                    <input date="text" id="fechaVencimiento" name="fechaVencimiento"required>
+
+                    
                 </form>
             </div>
             <div class="modal-footer">

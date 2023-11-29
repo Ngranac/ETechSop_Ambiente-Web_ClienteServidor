@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="floatingPassword">Contraseña</label>
     </div>
     <br>
-
+    <!--<a>Olvidaste tu contraseña?</a>-->
     <br>
     <br>
     <button class="btn btn-primary">Iniciar Sesión</button>

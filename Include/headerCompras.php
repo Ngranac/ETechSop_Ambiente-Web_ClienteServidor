@@ -26,10 +26,8 @@
     <div class="nav">
         <h3>ETechShop</h3>
     </div>
-    <div class="btn-group" role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-primary">Carrito compras</button>
-    <button type="button" class="btn btn-primary">Perfil</button>
-    </div>
+    <button><a  href="carritoCompras.php">Carrito compras</a></button>
+    <button><a  href="perfil.php">Perfil</a></button>
 </header>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"

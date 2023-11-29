@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="preload" href="css/style.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="preload" href=css/headerCompras.css>
+    <link rel="stylesheet" href=css/headerCompras.css>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
@@ -26,10 +26,12 @@
     <div class="nav">
         <h3>ETechShop</h3>
     </div>
-    <a href="Compras.php" class="btn btn-outline-primary">Regresar al inicio</a>
-    <a  href="carritoCompras.php" class="btn btn-outline-primary">Carrito compras</a>
-    <a  href="perfil.php" class="btn btn-outline-primary">Perfil</a>
+    <button class="btn-primary2"><a href="Compras.php">Regresar al inicio</a></button>
+    <button class="btn-primary2"><a  href="carritoCompras.php">Carrito compras</a></button>
+    <button class="btn-primary2"><a  href="perfil.php">Perfil</a></button>
 </header>
+
+
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"

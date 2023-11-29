@@ -19,6 +19,7 @@ include_once "include/headerCompras.php";
     <link rel="stylesheet" href="./css/compras.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body> 
@@ -54,7 +55,7 @@ include_once "include/headerCompras.php";
                     <div class="info-product">
                         <h4>' . $product['Nombre'] . '</h4>
                         <p class="price">₡' . $product['precio'] . '</p>
-                        <a href="agregarproducto.php?id=' . $product['codigo'] . '" class="btn-add-cart">Añadir al carrito</a>
+                        <a href="agregarproducto.php?id=' . $product['codigo'] . '" class="btn-add-cart" onclick="showNotification()">Añadir al carrito</a>
                     </div>
                 </div>';
         }
@@ -63,6 +64,17 @@ include_once "include/headerCompras.php";
 
     </main>
 
+
+    <script>
+        function showNotification() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Agregado correctamente al carrito',
+                showConfirmButton: false,
+                timer: 20000000
+            });
+        }
+    </script>
 </body>
 <?php
 include_once "./Include/footer.php"

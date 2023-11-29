@@ -33,7 +33,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 }
 ?>
-
+<head>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
 <main>
 
 <div class="row">
@@ -59,15 +61,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label><input type="checkbox"> He leído y acepto los Términos y Condiciones</label>
             <br>
             <br>
-            <button type="submit" class="btn btn-primary">Registrarme</button>
+            <button type="submit" class="btn btn-primary" onclick="showNotification()">Registrarme</button>
             <span class="text-dark"><?php echo $mensajeValidacion; ?></span>
             <br>
             <br>
-            <a class="text-center" href="index.php">Volver al inicio</a>
+            <button class="btn btn-primary"><a class="text-center" href="index.php">Volver al inicio</a></button>
         </form>
     </div>
     <div class="col-xs-12 col-md-6">
         <img src="img/img_registro.png" class="img_login">
     </div>
 </div>
+<script>
+        function showNotification() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Registrado correctamente',
+                showConfirmButton: false,
+                timer: 10000
+            });
+        }
+    </script>
+
+
+<?php
+include_once "include/footer.php";
+?>
 

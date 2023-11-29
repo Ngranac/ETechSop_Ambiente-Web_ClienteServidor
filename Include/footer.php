@@ -33,7 +33,7 @@
     ¿Listo para descubrir lo último en tecnología? Únete a nosotros en esta emocionante travesía, donde la innovación se encuentra a solo un clic de distancia. ¡Bienvenido a la revolución tecnológica en nuestra tienda virtual!</p>
 </div>
 
-<p>© 2023. All rights reserved</p>
+<p class="footer">© 2023. All rights reserved</p>
 
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"

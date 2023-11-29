@@ -1,5 +1,6 @@
 .footer{
     display: flex;
+    background-color: rgba(83, 4, 4, 0.151);
 }
 .logo{
     width: 70px;

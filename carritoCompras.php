@@ -87,8 +87,14 @@ include_once "include/headerCompras.php";
                 <form id="formularioCompra" action="procesarCompra.php" method="post">
                    <input type="hidden" name="nombreUsuario" value="<?php echo $nombreUsuario; ?>">
                    <input type="hidden" id="totalCompra" name="totalCompra" value="<?php echo $total?>">
-                    <label for="numeroTarjeta">Número de Tarjeta:</label>
+                  
+                   <label for="numeroTarjeta">Número de Tarjeta:</label>
                     <input type="text" id="numeroTarjeta" name="numeroTarjeta" required>
+                    <label for="CVV"> Clave de Seguridad:</label>
+                    <input type="text" id="CVV" name="CVV" required>
+                    <label for="fechaVencimiento"> Fecha de vencimiento: </label>
+                    <input date="text" id="fechaVencimiento" name="fechaVencimiento"required>
+
                     
                 </form>
             </div>

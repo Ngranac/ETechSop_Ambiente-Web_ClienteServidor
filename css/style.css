@@ -43,3 +43,9 @@ a{
     background-color: #002333 !important;
     width: 100%;
 }
+
+.rating input::before{
+    content: '\f005';
+    position: absolute;
+    font-family: fontAwesome;
+}

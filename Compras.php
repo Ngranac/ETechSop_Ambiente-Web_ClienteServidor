@@ -55,7 +55,15 @@ include_once "include/headerCompras.php";
                     <div class="info-product">
                         <h4>' . $product['Nombre'] . '</h4>
                         <p class="price">₡' . $product['precio'] . '</p>
-                        <a href="agregarproducto.php?id=' . $product['codigo'] . '" class="btn-add-cart" onclick="showNotification()">Añadir al carrito</a>
+                        <div class="rating ">
+                        <input type="radio" name="clr1" style="--c:#ff9933" >
+                        <input type="radio" name="clr1" style="--c:#ff9933">
+                        <input type="radio" name="clr1" style="--c:#ff9933">
+                        <input type="radio" name="clr1" style="--c:#ff9933">
+                        <input type="radio" name="clr1" style="--c:#ff9933">
+                    </div>
+                        <a href="agregarproducto.php?id=' . $product['codigo'] . '" class="btn btn-outline-warning" onclick="showNotification()" >Añadir al carrito</a>
+                   
                     </div>
                 </div>';
         }

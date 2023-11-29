@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <span class="text-dark"><?php echo $mensajeValidacion; ?></span>
     <br>
     <br>
-    <button><a class="text-center" href="registrar.php">Registrarme</a></button>
+    <a class="text-center" href="registrar.php">Registrarme</a>
 </form>
     </div>
     <div class="col-xs-12 col-md-6">

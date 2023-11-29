@@ -12,6 +12,8 @@
     <link rel="preload" href="css/style.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/headerCompras.css">
+    <link rel="stylesheet" href="css/camcontrasena.css">
+    <link rel="stylesheet" href="css/perfil.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
@@ -27,9 +29,11 @@
     <div class="nav">
         <h3>ETechShop</h3>
     </div>
+    <div class="botones-container">
     <button class="btn-primary2"><a href="Compras.php">Regresar al inicio</a></button>
-    <button class="btn-primary2"><a  href="carritoCompras.php">Carrito compras</a></button>
-    <button class="btn-primary2"><a  href="perfil.php">Perfil</a></button>
+    <button class="btn-primary2"><a href="perfil.php">Perfil</a></button>
+    <button class="btn-primary2"><a href="carritoCompras.php">Carrito compras</a></button>
+</div>
 </header>
 
 

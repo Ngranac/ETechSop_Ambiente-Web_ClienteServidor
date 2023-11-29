@@ -26,6 +26,7 @@
     <div class="nav">
         <h3>ETechShop</h3>
     </div>
+    <a href="Compras.php" class="btn btn-outline-primary">Regresar al inicio</a>
     <a  href="carritoCompras.php" class="btn btn-outline-primary">Carrito compras</a>
     <a  href="perfil.php" class="btn btn-outline-primary">Perfil</a>
 </header>

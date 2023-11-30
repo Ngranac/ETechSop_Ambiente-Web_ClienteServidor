@@ -3,10 +3,9 @@
 }
 .btn-primary2{
     margin-left: 30px;
-    border-radius: 30px;
+    border-radius: 15px;
     border-color: #000000 !important;
     background-color: #074866 !important;
-    color: rgb(255, 255, 255);
 }
 .nav{
     margin-left: 20px;

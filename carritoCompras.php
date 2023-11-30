@@ -127,6 +127,7 @@ include_once "include/headerCompras.php";
        document.getElementById('formularioCompra').submit();
     }
     </script>
+    <br>
 </body>
 <?php
 include_once "./Include/footer.php"

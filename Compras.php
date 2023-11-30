@@ -79,7 +79,7 @@ include_once "include/headerCompras.php";
                 icon: 'success',
                 title: 'Agregado correctamente al carrito',
                 showConfirmButton: false,
-                timer: 20000000
+                timer: 150000000
             });
         }
     </script>

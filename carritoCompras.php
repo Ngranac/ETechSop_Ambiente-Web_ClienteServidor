@@ -94,6 +94,7 @@ include_once "include/headerCompras.php";
                     <input type="text" id="CVV" name="CVV" required>
                     <label for="fechaVencimiento"> Fecha de vencimiento: </label>
                     <input date="text" id="fechaVencimiento" name="fechaVencimiento"required>
+                    <img class="pagos__imagen" src="img/pagos.png" alt="imagen pagos">
 
                     
                 </form>

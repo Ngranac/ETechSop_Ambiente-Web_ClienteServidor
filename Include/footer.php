@@ -18,10 +18,11 @@
 <div class="footer">
     <div class="logo"> <img src="img/icono.png "></div>
     <div class="tutulo"><h3>ETechShop</h3>
-    <h6>Metodos de pago:</h6>
+    <img class="pagos__imagen" src="img/pagos.png" alt="imagen pagos">
+   <!-- <h6>Metodos de pago:</h6>
     <P>-SIMPEMOVIL</P>
     <P>-VISA</P>
-    <p>-MASTERCARD</p>
+    <p>-MASTERCARD</p>-->
     </div>
     <p class="texto">
     ¡Bienvenidos a nuestra tienda virtual, el destino definitivo para los amantes de la tecnología! Sumérgete en un mundo de innovación y descubre lo último en dispositivos y gadgets que marcan tendencia. En nuestra plataforma, te ofrecemos una cuidada selección de productos de vanguardia, diseñados para elevar tu experiencia tecnológica a nuevos niveles.

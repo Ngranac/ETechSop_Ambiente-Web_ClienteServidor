@@ -44,8 +44,3 @@ a{
     width: 100%;
 }
 
-.rating input::before{
-    content: '\f005';
-    position: absolute;
-    font-family: fontAwesome;
-}

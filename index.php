@@ -113,7 +113,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://kit.fontawesome.com/4b2f294736.js" crossorigin="anonymous"></script>
 </body>
 </html>
-<?php
-include_once "include/footer.php";
-?>
- 

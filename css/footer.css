@@ -1,0 +1,16 @@
+.footer{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.151);
+}
+.logo{
+    width: 70px;
+    height: 70px;
+}
+.tutulo{
+    margin-left: 20px;
+}
+.texto{
+    margin-left: 20px;
+    text-align: justify;
+    margin-right: 20px;
+}

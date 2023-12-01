@@ -43,4 +43,16 @@ a{
     background-color: #002333 !important;
     width: 100%;
 }
-
+ 
+.registro{
+    color: gray !important;
+}
+.terminos{
+    color: #265e97 !important;
+}
+.btn_comprar{
+    width: 25% !important;
+    background-color: #ffffff !important;
+    color: black !important;
+ 
+}

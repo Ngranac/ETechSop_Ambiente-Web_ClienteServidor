@@ -21,10 +21,11 @@
     <header class="header">
     <div class="row">
         <div class="col-12 columna-personalizada"> <img src="img/icono.png" ></div>
-        
+        <i class="fa-solid fa-user"></i>
     </div>
     <div class="nav">
         <h3>ETechShop</h3>
+
     </div>
     <a href="Compras.php" class="btn btn-outline-primary">Regresar al inicio</a>
     <a  href="carritoCompras.php" class="btn btn-outline-primary">Carrito compras</a>

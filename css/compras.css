@@ -1,7 +1,12 @@
 .contenedor1{
-    background-color: #EE1B24 !important;
-    color: beige;
+    background-color: #000 !important;
+    color: #ffff;
     display: flex;
+    height: 25rem;
+    padding: 15px;
+    display: flex;
+   align-items: center;
+    border-radius: 10px;
 }
 .contenedor1{
     text-align:center;
@@ -9,7 +14,7 @@
 }
 
 .img_mac{
-    width: 50%;
+    width: 65%;
 }
 
 .boton{
@@ -18,7 +23,6 @@
     background-color: rgb(7, 23, 58) !important;
     
 }
-
 
 .objetos{
     display: grid;

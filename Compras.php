@@ -28,12 +28,12 @@ include_once "include/headerCompras.php";
         <br>
         <div class="contenedor1">
                 <div class="contenedor1-A">
-                    <h1>Descuento 50% de descuento en compras mayores a 4 articulos</h1>
+                    <h1>Descuento de 50% en compras mayores a 4 articulos </h1>
                     <p>Revisa la información de los artículos</p>
-                    <button class="boton">Comprar</button>
+                    <button class="btn btn_comprar">Comprar</button>
                 </div>
                 <div class="contenedor1-B">
-                    <img src="./img/Apple-MacBook" class="img_mac">
+                    <img src="./img/fondo.jpg" class="img_mac">
                 </div>
         </div>
 

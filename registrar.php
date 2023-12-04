@@ -1,28 +1,28 @@
 <?php
 require_once "DAL/conexion.php";
 require_once "DAL/recoge.php";
-
+ 
 $mensajeValidacion = "";
-
+ 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $email = recogePost("email");
   $password = recogePost("password");
-
+ 
   if (empty($email) || empty($password)) {
     $mensajeValidacion = "Por favor, completa todos los campos.";
   } else {
       $query_check = "SELECT correo FROM usuarios WHERE correo = '$email'";
       $result_check = mysqli_query(Conecta(), $query_check);
-
+ 
       if (mysqli_num_rows($result_check) > 0) {
         $mensajeValidacion = "Este correo electrónico ya está registrado. Por favor, utiliza otro.";
       } else {
           // El correo no está registrado, procede con la inserción
           $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
+ 
           $query_insert = "INSERT INTO usuarios (correo, contrasena) VALUES ('$email', '$hashedPassword')";
           $result_insert = mysqli_query(Conecta(), $query_insert);
-
+ 
           if ($result_insert) {
             $mensajeValidacion = "Registro exitoso. ¡Ahora puedes iniciar sesión!";
           } else {
@@ -62,6 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="row">
   <div class="col-md-1"></div>
     <div class="col-xs-12 col-md-4 centrar">
+  <div class="col-md-1"></div>
+    <div class="col-xs-12 col-md-4 centrar">
         <h2 class="text-center">Registrarme en ETechShop</h2>
         <p class="text-center">Regístrate y realiza tus compras en la mejor plataforma de productos tecnológicos.</p>
         <hr>
@@ -72,7 +74,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                <label class="form-label" for="floatingInput">Correo electrónico</label>
                <div class="valid-feedback">Información completa</div>
                <div class="invalid-feedback">Campo Obligatorio</div>
+            <div class="form-outline">
+              <input type="email" class="form-control" id="floatingInput" name="email" autocomplete="off"/>
+               <label class="form-label" for="floatingInput">Correo electrónico</label>
+               <div class="valid-feedback">Información completa</div>
+               <div class="invalid-feedback">Campo Obligatorio</div>
             </div>
+            <br>
+            <div class="form-outline">
+              <input type="password" class="form-control" id="floatingPassword" name="password" autocomplete="off"/>
+               <label class="form-label" for="floatingPassword">Contraseña</label>
+               <div class="valid-feedback">Información completa</div>
+               <div class="invalid-feedback">Campo Obligatorio</div>
             <br>
             <div class="form-outline">
               <input type="password" class="form-control" id="floatingPassword" name="password" autocomplete="off"/>
@@ -86,8 +99,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                <label class="form-label" for="floatingPasswordConfirm">Confirmar Contraseña</label>
                <div class="valid-feedback">Información completa</div>
                <div class="invalid-feedback">Campo Obligatorio</div>
+            <br>
+            <div class="form-outline">
+              <input type="password" class="form-control" id="floatingPasswordConfirm" name="password_confirm" autocomplete="off"/>
+               <label class="form-label" for="floatingPasswordConfirm">Confirmar Contraseña</label>
+               <div class="valid-feedback">Información completa</div>
+               <div class="invalid-feedback">Campo Obligatorio</div>
             </div>
             <br>
+            <span class="text-dark"><?php echo $mensajeValidacion; ?></span>
+            <label><input type="checkbox">&ensp;He leído y acepto los <a class="terminos" href="Términos y Condiciones">Términos y Condiciones</a></label>
             <span class="text-dark"><?php echo $mensajeValidacion; ?></span>
             <label><input type="checkbox">&ensp;He leído y acepto los <a class="terminos" href="Términos y Condiciones">Términos y Condiciones</a></label>
             <br>
@@ -100,13 +121,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <div class="col-md-2"> <a class="registro" href="index.php">Inicio</a></div>
               <div class="col-md-5"><hr></div>
             </div>
+            <div class="row">
+              <div class="col-md-5"><hr></div>
+              <div class="col-md-2"> <a class="registro" href="index.php">Inicio</a></div>
+              <div class="col-md-5"><hr></div>
+            </div>
         </form>
     </div>
+    <div class="col-md-1"></div>
     <div class="col-md-1"></div>
     <div class="col-xs-12 col-md-6">
         <img src="img/img_registro.png" class="img_login">
     </div>
 </div>
+</main>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"
+        integrity="sha512-oFBfx20Vuw8reYrngBlvcrgBmDcEAPE0Vv7Rb9b7JYZNHmDFdxZhiOTGm0CePa7ouSwfty9qwHQck1aVGWK5tA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/4b2f294736.js" crossorigin="anonymous"></script>
+</body>
+</html>
 </main>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"

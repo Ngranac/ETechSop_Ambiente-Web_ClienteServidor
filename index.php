@@ -4,11 +4,11 @@ require_once "DAL/recoge.php";
 $errores = [];
 session_start();
 $mensajeValidacion = "";
-
+ 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = recogePost("email");
     $password = recogePost("password");
-
+ 
     if (empty($email) || empty($password)) {
         $mensajeValidacion = "Por favor, completa todos los campos.";
     } else {
@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $query = "SELECT contrasena FROM usuarios WHERE correo = '$email'";
         $result = mysqli_query(Conecta(), $query);
         $row = mysqli_fetch_assoc($result);
-
+ 
         if ($row) {
             if (password_verify($password, $row["contrasena"])) {
                 $_SESSION['usuario'] = $email;
@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
-
+ 
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -64,11 +64,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-xs-12 col-md-4 centrar">
+    <div class="col-md-1"></div>
+    <div class="col-xs-12 col-md-4 centrar">
      <h2 class="text-center">Bienvenidos a ETechShop</h2>
      <p class="text-center">Deseas comprar productos tecnologicos, EtechShop es tú plataforma!</p>
      <hr >
      <br>
      <form method="POST" action="">
+     <div class="form-outline">
+      <input type="email" class="form-control" id="floatingInput" name="email" />
+      <label class="form-label" for="floatingInput">Correo electrónico</label>
+      <div class="valid-feedback">Información completa</div>
+      <div class="invalid-feedback">Campo Obligatorio</div>
+  </div>
+  <br>
+  <div class="form-outline">
+      <input type="password" class="form-control" id="floatingPassword" name="password" />
+      <label class="form-label" for="floatingPassword">Contraseña</label>
+      <div class="valid-feedback">Información completa</div>
+      <div class="invalid-feedback">Campo Obligatorio</div>
+  </div>
+  <span class="text-center"><?php echo $mensajeValidacion; ?></span>
      <div class="form-outline">
       <input type="email" class="form-control" id="floatingInput" name="email" />
       <label class="form-label" for="floatingInput">Correo electrónico</label>
@@ -94,8 +110,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="col-md-5"><hr></div>
     </div>
  
+    <div class="row">
+        <div class="col-md-5"><hr></div>
+        <div class="col-md-2"><a class="registro"  href="registrar.php">Registro</a></div>
+        <div class="col-md-5"><hr></div>
+    </div>
+ 
 </form>
     </div>
+    <div class="col-md-1"></div>
     <div class="col-md-1"></div>
     <div class="col-xs-12 col-md-6">
         <img src="img/img_login.png" class="img_login">

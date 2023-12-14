@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="css/headerCompras.css">
     <link rel="stylesheet" href="css/camcontrasena.css">
     <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+        integrity="sha512-nzSGtgaJWS79WO+bCKLhowPkjbM+WI18/K4T77XPB4QPMybSKLozMFzDNPEHcWxN1dOx1gvYGKP39nXLNNZ8qg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
@@ -22,31 +25,85 @@
 
 <body>
     <header class="headerclass">
-    <div class="row">
-        <div class="col-12 columna-personalizada"> <img src="img/icono.png" ></div>
-        
-    </div>
-    <div class="nav">
-        <h3>ETechShop</h3>
-    </div>
-    <div class="botones-container">
-    <button class="btn-primary2"><a href="Compras.php"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"/>
-  <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"/>
-</svg>  Regresar al inicio</a></button>
-    <button class="btn-primary2"><a href="perfil.php"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-</svg>  Perfil</a></button>
-    <button class="btn-primary2"><a href="carritoCompras.php"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
-  <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9z"/>
-  <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
-</svg>  Carrito compras</a></button>
-</div>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="width: 100%;">
+    <div class="container-fluid">
+         <a class="navbar-brand" href="Compras.php"><img src="img/icono.png" >&ensp;ETechshop</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+        <?php
+    if (isset($_SESSION['usuario']) && $_SESSION['usuario'] == 'administrador@gmail.com') {
+        echo '<a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">Agregar Producto</a>';
+    }
+    ?>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Envios</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search" id="formBusqueda">
+      <div class="input-group rounded">
+        <input type="search" class="form-control rounded" placeholder="Buscar" aria-label="Search" aria-describedby="search-addon" />
+      </div>
+      </form>
+      <ul class="nav nav-pills">
+       <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="perfil.php"><i class="fa-light fa-user"></i>&ensp;Perfil</a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link" href="carritoCompras.php"><i class="fa-light fa-cart-shopping"></i>&ensp;Carrito Compras</a>
+        </li>
+      </ul>
+      </div>
+  </div>
+</nav>
 </header>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Producto</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form action="agregarproductoCompras.php" method="post">
+                        <div class="form-group">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" autocomplete="off" class="form-control" id="nombre" name="nombre" required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="detalle">Detalle:</label>
+                            <textarea class="form-control" autocomplete="off" id="detalle" name="detalle" rows="3" required></textarea>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="precio">Precio:</label>
+                            <input type="number" autocomplete="off" class="form-control" id="precio" name="precio" min="0" step="0.01" required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="imagen">URL de la imagen:</label>
+                            <input type="text" autocomplete="off" class="form-control" id="imagen" name="imagen" required>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary">Guardar Producto</button>
+                    </form>
+      </div>
+    </div>
+  </div>
+</div>
 
-
-    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"
+        integrity="sha512-oFBfx20Vuw8reYrngBlvcrgBmDcEAPE0Vv7Rb9b7JYZNHmDFdxZhiOTGm0CePa7ouSwfty9qwHQck1aVGWK5tA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/4b2f294736.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>

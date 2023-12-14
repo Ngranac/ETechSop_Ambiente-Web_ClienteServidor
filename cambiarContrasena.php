@@ -22,15 +22,20 @@ include_once "include/headerCompras.php";
 </head>
 <br>
 <main>
-    <div class="fondo">
-    <h2>Para cambiar su contraseña por favor digite la nueva contraseña que desea en la siguiente opcion:</h2>
-    <br>
-<form method="POST" action="procesarContrasena.php">
-    <label for="nuevaContrasena"><h4> Nueva Contraseña:</h4></label>
-    <input type="password" id="nuevaContrasena" name="nuevaContrasena" required>
-    <button type="submit" class="btmcontras">Cambiar Contraseña</button>
-    <button class="btmcontras"><a href="perfil.php">Regresar a perfil</a></button>
-</form>
+<div class="card-container">
+        <div class="card">
+            <h2 class="card-title">Cambiar Contraseña</h2>
+            <form method="POST" action="procesarContrasena.php">
+                <div class="form-group">
+                    <label for="nuevaContrasena">Nueva Contraseña:</label>
+                    <input type="password" id="nuevaContrasena" name="nuevaContrasena" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-contras">Cambiar Contraseña</button>
+                <a href="perfil.php" class="btn btn-secondary btn-contras">Regresar a perfil</a>
+            </form>
+        </div>
+    </div>
+
 </div>
 </main>
 <br>

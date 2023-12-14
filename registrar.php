@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="row">
   <div class="col-md-1"></div>
     <div class="col-xs-12 col-md-4 centrar">
-        <h2 class="text-center">Registrarme en ETechShop</h2>
+        <h2 class="text-center">Registrarme en ETechshop</h2>
         <p class="text-center">Regístrate y realiza tus compras en la mejor plataforma de productos tecnológicos.</p>
         <hr>
         <br>

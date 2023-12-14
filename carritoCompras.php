@@ -20,14 +20,9 @@ include_once "include/headerCompras.php";
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
-
 <body> 
-
-    <main>
-        
+    <main> 
         <br>
-       
-
         <br>
         <h4>Carrito de compras</h4>
         <br>   
@@ -37,17 +32,19 @@ include_once "include/headerCompras.php";
             $total = 0;
             if (isset($_SESSION['carritoCompras']) && !empty($_SESSION['carritoCompras'])) {
                 foreach ($_SESSION['carritoCompras'] as $product_id => $product_details) {
-                    echo '<div class="item">
-                            <figure>
+                    echo '<div class="card text-center">
                                 <img src="' . $product_details['imagen'] . '" alt="' . $product_details['Nombre'] . '" />
-                            </figure>
-                            <div class="info-product">
-                                <button class="btn-add-cart" onclick="eliminarProducto(' . $product_id . ')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-                                <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
-                              </svg>Eliminar producto del carrito</button>
-                                <button class="btn-add-cart" data-bs-toggle="modal" data-bs-target="#modalDetalles' . $product_id . '">Ver detalles</button>
+                            <div class="card-body">
+                            <div class="row">
+                            <div class="col-md-9"> <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetalles' . $product_id . '">Ver detalles</button>
                             </div>
-                        </div>';
+                            <div class="col-md-2">
+                            <button class="btn btn-outline-danger" onclick="eliminarProducto(' . $product_id . ')">
+                            <i class="fa-regular fa-trash"></i></button>
+                            </div>  
+                            </div>
+                            </div>
+                           </div>';
                         $total += $product_details['precio'];
                     echo '<div class="modal fade" id="modalDetalles' . $product_id . '" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -57,9 +54,21 @@ include_once "include/headerCompras.php";
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                       <h4>' . $product_details['Nombre'] . '</h4>
-                                        <p>' . $product_details['Detalle'] . '</p>
-                                        <p class="price">₡' . $product_details['precio'] . '</p>
+                                    <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="' . $product_details['imagen'] . '" alt="' . $product_details['Nombre'] . '" class="img-fluid rounded-start"/>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">' . $product_details['Nombre'] . '</h5>
+        <p class="card-text">' . $product_details['Detalle'] . '</p>
+        <p class="card-text"><small class="text-body-secondary price" >₡' . $product_details['precio'] . '</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -73,36 +82,52 @@ include_once "include/headerCompras.php";
             }
             ?>
         </div>
-        <button class="btn btn-primary" id="finalizarCompraBtn" data-bs-toggle="modal" data-bs-target="#modalFinalizarCompra">Finalizar Compra</button>
+        <br>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-3">  <button class="btn btn-secondary" id="finalizarCompraBtn" data-bs-toggle="modal" data-bs-target="#modalFinalizarCompra">Finalizar Compra</button></div>
+            <div class="col-md-3">
+                <a class="btn btn-outline-secondary" href="Compras.php">Regresar </a>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+      
         
 
 
-        <div class="modal fade" id="modalFinalizarCompra" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalFinalizarCompra" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Finalizar Compra</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <p>Monto Total: $<?php echo $total; ?></p>
+            <div class="modal-body text-center">
+                <h5>Monto Total: $<?php echo $total; ?></p>
                 <form id="formularioCompra" action="procesarCompra.php" method="post">
                    <input type="hidden" name="nombreUsuario" value="<?php echo $nombreUsuario; ?>">
                    <input type="hidden" id="totalCompra" name="totalCompra" value="<?php echo $total?>">
-                  
-                   <label for="numeroTarjeta">Número de Tarjeta:</label>
-                    <input type="text" id="numeroTarjeta" name="numeroTarjeta" required>
-                    <label for="CVV"> Clave de Seguridad:</label>
-                    <input type="text" id="CVV" name="CVV" required>
-                    <label for="fechaVencimiento"> Fecha de vencimiento: </label>
-                    <input date="text" id="fechaVencimiento" name="fechaVencimiento"required>
-                    <img class="pagos__imagen" src="img/pagos.png" alt="imagen pagos">
-
-                    
+                   <div class="card" style="width: 100%;">
+                   <img class="card-img-top" src="img/pagos.png">
+  <div class="card-body">
+  <div class="form-floating mb-3">
+  <input type="text" class="form-control" id="floatingInput" placeholder="" required>
+  <label for="floatingInput">Número de tarjeta</label>
+</div>
+<div class="form-floating mb-3">
+  <input type="number" class="form-control" id="floatingInput" placeholder="" required>
+  <label for="floatingInput">Clave de seguridad:</label>
+</div>
+<div class="form-floating mb-3">
+  <input type="date" class="form-control" id="floatingInput" placeholder="" required>
+  <label for="floatingInput">Fecha de vencimiento</label>
+</div>
+  </div>
+</div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+             
                 <button type="button" class="btn btn-primary" onclick="procesarCompra()">Procesar Compra</button>
             </div>
         </div>

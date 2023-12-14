@@ -19,10 +19,7 @@ header{
     top: 0;
     background-color: #ffffff;
     z-index: 200;
-    border: 1px solid #d5d5d5 !important;
-    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 17px 17px -20px, rgba(255, 255, 255, 0.1) 0px 0px 10px -20px;
 }
-
 .centrar{
   padding-top: 6%;
 
@@ -35,7 +32,7 @@ header{
 
 a{
     text-decoration: none !important;
-    color: #1C95B4 !important;
+ 
 }
 
 .btn-primary{
@@ -43,7 +40,17 @@ a{
     background-color: #002333 !important;
     width: 100%;
 }
- 
+.btn-outline-secondary{
+    border-color: #002333 !important;
+    background-color: #fff !important;
+    width: 100% !important;
+    color:  #002333 !important;
+}
+.btn-secondary{
+    border-color: #39496B !important;
+    background-color: #39496B !important;
+    width: 100%;
+}
 .registro{
     color: gray !important;
 }
@@ -54,5 +61,38 @@ a{
     width: 25% !important;
     background-color: #ffffff !important;
     color: black !important;
- 
+
+}
+.navbar{
+    background-color:  #ffffff !important;
+}
+
+footer {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white; 
+    padding:1%;
+}
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer_item {
+        margin: 5px;
+    }
+}
+
+
+.footer_logo {
+    max-width: 100px; 
+}
+
+.footer_item {
+    margin: 20px;
+}
+.metodos_pago{
+width: 250px;
 }

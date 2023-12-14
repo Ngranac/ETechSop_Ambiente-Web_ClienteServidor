@@ -27,13 +27,26 @@ include_once "include/headerCompras.php";
     $usuario = obtenerInformacionUsuario($_SESSION['usuario']); 
     
 ?>
-<div class="fondo">
-<h2>Bienvenido, es un placer tenerte en nuestra tienda virtual</h2>
-<?php
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+    <div class="card ">
+  <div class="card-header text-center">
+  <h2>Mi perfil</h2>
+  </div>
+  <div class="card-body">
+  <?php
 echo '' . $usuario['correo'] . '<br>';
 ?>
+<br>
 <p>Por motivos de seguridad su contraseña no sera mostrada, si desea cambiar su contraseña puede hacerlo</p>
-<button class="btmcontras"><a href="cambiarContrasena.php">Cambiar Contraseña</a></button>
+  </div>
+  <div class="card-footer text-body-secondary">
+  <a href="cambiarContrasena.php" class="btn btn-primary">Cambiar Contraseña</a>
+  </div>
+</div>
+    </div>
+    <div class="col-md-3"></div>
 </div>
 
 </main>

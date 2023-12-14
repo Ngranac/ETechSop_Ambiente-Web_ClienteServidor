@@ -124,3 +124,4 @@ function actualizarContrasena($correo, $nuevaContrasena) {
 
     return $resultado;
 }
+

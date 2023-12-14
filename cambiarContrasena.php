@@ -23,19 +23,31 @@ include_once "include/headerCompras.php";
 <br>
 <main>
 <div class="card-container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
         <div class="card">
-            <h2 class="card-title">Cambiar Contraseña</h2>
+            <h2 class="card-title text-center">Cambiar Contraseña</h2>
+            <div class="card-body">
             <form method="POST" action="procesarContrasena.php">
                 <div class="form-group">
                     <label for="nuevaContrasena">Nueva Contraseña:</label>
                     <input type="password" id="nuevaContrasena" name="nuevaContrasena" class="form-control" required>
                 </div>
+                <br>
                 <button type="submit" class="btn btn-primary btn-contras">Cambiar Contraseña</button>
+                <br>
+                <br>
                 <a href="perfil.php" class="btn btn-secondary btn-contras">Regresar a perfil</a>
             </form>
+            </div>
+            
         </div>
+        </div>
+        <div class="col-md-4"></div>
+       
     </div>
-
+    </div>
 </div>
 </main>
 <br>

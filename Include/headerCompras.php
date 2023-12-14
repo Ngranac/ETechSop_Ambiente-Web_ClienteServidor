@@ -41,14 +41,10 @@
     ?>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Envios</a>
+          <a class="nav-link" href="miscompras.php">Mis Compras</a>
         </li>
       </ul>
-      <form class="d-flex" role="search" id="formBusqueda">
-      <div class="input-group rounded">
-        <input type="search" class="form-control rounded" placeholder="Buscar" aria-label="Search" aria-describedby="search-addon" />
-      </div>
-      </form>
+     
       <ul class="nav nav-pills">
        <li class="nav-item">
           <a class="nav-link" aria-current="page" href="perfil.php"><i class="fa-light fa-user"></i>&ensp;Perfil</a>
@@ -56,6 +52,11 @@
        <li class="nav-item">
          <a class="nav-link" href="carritoCompras.php"><i class="fa-light fa-cart-shopping"></i>&ensp;Carrito Compras</a>
         </li>
+        <?php
+                    if (isset($_SESSION['usuario'])) {
+                        echo '<li class="nav-item"><a class="nav-link" href="cerrar_sesion.php">Cerrar Sesión</a></li>';
+                    }
+                    ?>
       </ul>
       </div>
   </div>

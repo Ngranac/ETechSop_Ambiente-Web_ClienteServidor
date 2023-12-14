@@ -74,7 +74,6 @@
 .info-product button{
     border: none;
     border-radius: 10px;
-    background-color: #ffb3b3;
     color: #000000;
     padding: 15px 10px;
     cursor: pointer;
@@ -85,4 +84,13 @@
 .iconocss{
     width: 400px;
     height: 2500px;
+}
+
+.btn-add{
+        background-color: white !important;
+        border-color: #39496B !important;
+        color: #39496B !important;
+        height: 5rem !important;
+        border-radius: 1rem !important;
+ 
 }

@@ -21,7 +21,7 @@
 <body>
     <header class="header">
     <div class="row">
-        <div class="col-12 columna-personalizada"> <img src="img/icono.png" ></div>
+        <div class="col-12 columna-personalizada"></div>
         <!-- Default checkbox -->
        
     </div>
